@@ -78,6 +78,9 @@
 			this.pass_txt = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.followtimes = new System.Windows.Forms.NumericUpDown();
+			this.panel10 = new System.Windows.Forms.Panel();
+			this.restrictlikesusers = new System.Windows.Forms.CheckBox();
+			this.restrlikesusers = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.comment_percent)).BeginInit();
@@ -96,6 +99,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.likes_nmbr)).BeginInit();
 			this.panel9.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.followtimes)).BeginInit();
+			this.panel10.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -114,9 +118,9 @@
 			this.likerestrict.AutoSize = true;
 			this.likerestrict.Location = new System.Drawing.Point(6, 7);
 			this.likerestrict.Name = "likerestrict";
-			this.likerestrict.Size = new System.Drawing.Size(145, 24);
+			this.likerestrict.Size = new System.Drawing.Size(184, 24);
 			this.likerestrict.TabIndex = 1;
-			this.likerestrict.Text = "Restricting Likes";
+			this.likerestrict.Text = "Restricting Likes Tags";
 			this.likerestrict.UseVisualStyleBackColor = true;
 			// 
 			// restrictignore
@@ -172,9 +176,9 @@
 			// likerestrict_txt
 			// 
 			this.likerestrict_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.likerestrict_txt.Location = new System.Drawing.Point(152, 6);
+			this.likerestrict_txt.Location = new System.Drawing.Point(194, 6);
 			this.likerestrict_txt.Name = "likerestrict_txt";
-			this.likerestrict_txt.Size = new System.Drawing.Size(400, 26);
+			this.likerestrict_txt.Size = new System.Drawing.Size(358, 26);
 			this.likerestrict_txt.TabIndex = 8;
 			// 
 			// label2
@@ -349,7 +353,7 @@
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel1.Controls.Add(this.likerestrict);
 			this.panel1.Controls.Add(this.likerestrict_txt);
-			this.panel1.Location = new System.Drawing.Point(12, 215);
+			this.panel1.Location = new System.Drawing.Point(12, 210);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(565, 40);
 			this.panel1.TabIndex = 24;
@@ -359,7 +363,7 @@
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.restrictignore_txt);
 			this.panel2.Controls.Add(this.restrictignore);
-			this.panel2.Location = new System.Drawing.Point(12, 261);
+			this.panel2.Location = new System.Drawing.Point(12, 302);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(565, 40);
 			this.panel2.TabIndex = 25;
@@ -372,7 +376,7 @@
 			this.panel3.Controls.Add(this.comment_percent);
 			this.panel3.Controls.Add(this.label3);
 			this.panel3.Controls.Add(this.label4);
-			this.panel3.Location = new System.Drawing.Point(12, 307);
+			this.panel3.Location = new System.Drawing.Point(12, 348);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(565, 93);
 			this.panel3.TabIndex = 26;
@@ -402,7 +406,7 @@
 			this.panel4.Controls.Add(this.following);
 			this.panel4.Controls.Add(this.following_percent);
 			this.panel4.Controls.Add(this.label5);
-			this.panel4.Location = new System.Drawing.Point(12, 406);
+			this.panel4.Location = new System.Drawing.Point(12, 447);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(565, 65);
 			this.panel4.TabIndex = 28;
@@ -412,7 +416,7 @@
 			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel5.Controls.Add(this.friendexcl_txt);
 			this.panel5.Controls.Add(this.friendexcl);
-			this.panel5.Location = new System.Drawing.Point(12, 477);
+			this.panel5.Location = new System.Drawing.Point(12, 518);
 			this.panel5.Name = "panel5";
 			this.panel5.Size = new System.Drawing.Size(565, 40);
 			this.panel5.TabIndex = 29;
@@ -425,7 +429,7 @@
 			this.panel6.Controls.Add(this.lowerfc);
 			this.panel6.Controls.Add(this.interaction_lbl);
 			this.panel6.Controls.Add(this.upperfc);
-			this.panel6.Location = new System.Drawing.Point(12, 523);
+			this.panel6.Location = new System.Drawing.Point(12, 564);
 			this.panel6.Name = "panel6";
 			this.panel6.Size = new System.Drawing.Size(565, 109);
 			this.panel6.TabIndex = 30;
@@ -466,7 +470,7 @@
 			this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel7.Controls.Add(this.unfollow);
 			this.panel7.Controls.Add(this.unfollow_nmbr);
-			this.panel7.Location = new System.Drawing.Point(12, 638);
+			this.panel7.Location = new System.Drawing.Point(12, 679);
 			this.panel7.Name = "panel7";
 			this.panel7.Size = new System.Drawing.Size(565, 40);
 			this.panel7.TabIndex = 31;
@@ -475,7 +479,7 @@
 			// 
 			this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Location = new System.Drawing.Point(147, 797);
+			this.button1.Location = new System.Drawing.Point(147, 838);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(278, 42);
 			this.button1.TabIndex = 32;
@@ -491,7 +495,7 @@
 			this.panel8.Controls.Add(this.tags_lbl);
 			this.panel8.Controls.Add(this.likesfromtags_txt);
 			this.panel8.Controls.Add(this.likesfromtags_lbl);
-			this.panel8.Location = new System.Drawing.Point(12, 684);
+			this.panel8.Location = new System.Drawing.Point(12, 725);
 			this.panel8.Name = "panel8";
 			this.panel8.Size = new System.Drawing.Size(565, 97);
 			this.panel8.TabIndex = 33;
@@ -611,12 +615,41 @@
 			this.followtimes.Size = new System.Drawing.Size(106, 26);
 			this.followtimes.TabIndex = 19;
 			// 
+			// panel10
+			// 
+			this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel10.Controls.Add(this.restrlikesusers);
+			this.panel10.Controls.Add(this.restrictlikesusers);
+			this.panel10.Location = new System.Drawing.Point(12, 256);
+			this.panel10.Name = "panel10";
+			this.panel10.Size = new System.Drawing.Size(565, 40);
+			this.panel10.TabIndex = 35;
+			// 
+			// restrictlikesusers
+			// 
+			this.restrictlikesusers.AutoSize = true;
+			this.restrictlikesusers.Location = new System.Drawing.Point(7, 8);
+			this.restrictlikesusers.Name = "restrictlikesusers";
+			this.restrictlikesusers.Size = new System.Drawing.Size(191, 24);
+			this.restrictlikesusers.TabIndex = 0;
+			this.restrictlikesusers.Text = "Restricting Likes Users";
+			this.restrictlikesusers.UseVisualStyleBackColor = true;
+			// 
+			// restrlikesusers
+			// 
+			this.restrlikesusers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.restrlikesusers.Location = new System.Drawing.Point(204, 6);
+			this.restrlikesusers.Name = "restrlikesusers";
+			this.restrlikesusers.Size = new System.Drawing.Size(349, 26);
+			this.restrlikesusers.TabIndex = 1;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(589, 851);
+			this.ClientSize = new System.Drawing.Size(589, 1015);
+			this.Controls.Add(this.panel10);
 			this.Controls.Add(this.panel9);
 			this.Controls.Add(this.panel8);
 			this.Controls.Add(this.button1);
@@ -670,6 +703,8 @@
 			this.panel9.ResumeLayout(false);
 			this.panel9.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.followtimes)).EndInit();
+			this.panel10.ResumeLayout(false);
+			this.panel10.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -726,6 +761,9 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.NumericUpDown followtimes;
 		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Panel panel10;
+		private System.Windows.Forms.TextBox restrlikesusers;
+		private System.Windows.Forms.CheckBox restrictlikesusers;
 	}
 }
 

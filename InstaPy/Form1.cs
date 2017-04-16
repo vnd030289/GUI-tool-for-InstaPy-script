@@ -35,7 +35,7 @@ namespace InstaPy
 
 			// Import part of python file
 			string import = "from instapy import InstaPy" + Environment.NewLine + "import os" + Environment.NewLine;
-			File.WriteAllText("instapy.py", import);
+			File.WriteAllText(FILENAME, import);
 
 			// Username and Password processing 
 			string usernpass = "";
@@ -55,14 +55,14 @@ namespace InstaPy
 			}
 
 /*====================================================================================
-*		Like Restriction option
+*		Like Restriction Tags option
 *			# searches the description for the given words and won't
 *			# like the image if one of the words are in there
 *			
 *====================================================================================*/
 
 				string[] likeRestrictionStrings = { };
-				string likeRestrictionLine = "session.dont_like = [";
+				string likeRestrictionLine = "session.set_dont_like([";
 						
 				// Checks if option is selected
 				if (likerestrict.Checked)
@@ -85,22 +85,62 @@ namespace InstaPy
 					}else likeRestrictionLine += "'" + item + "', ";
 				}
 					// Close line with bracket
-					likeRestrictionLine = likeRestrictionLine.Remove(likeRestrictionLine.Length-2,1)+"]"+Environment.NewLine;
+					likeRestrictionLine = likeRestrictionLine.Remove(likeRestrictionLine.Length-2,1)+"])"+Environment.NewLine;
 
 					// Write in file
 					File.AppendAllText(FILENAME,likeRestrictionLine);
 				}
 
-/*=======================================================================================
-*		Ignoring restriction python function
-*		Process it all tags in textbox or shows error if there is no tags
-*			#will ignore the don't like if the description contains
-*			# one of the given words
-*			
-*========================================================================================*/
+			/*====================================================================================
+			*		Like Restriction Users option
+			*			# searches the description for the given words and won't
+			*			# like the image if one of the words are in there
+			*			
+			*====================================================================================*/
+
+			string[] likeRestrictionUsersStrings = { };
+			string likeRestrictionUsersLine = "session.set_ignore_users([";
+
+			// Checks if option is selected
+			if (restrictlikesusers.Checked)
+			{
+				// If selected but no tags shows error message		
+
+				if (restrlikesusers.Text.Equals(string.Empty))
+				{
+
+					MessageBox.Show("ERROR: No people detected. Write some people or deselect this option.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+					restrlikesusers.Focus();
+
+				}
+				else likeRestrictionUsersStrings = restrlikesusers.Text.Split(',');
+				foreach (var item in likeRestrictionUsersStrings)
+				{
+					// If there is emtpy tag skip it
+					if (item.Equals(string.Empty))
+					{
+						continue;
+					}
+					else likeRestrictionUsersLine += "'" + item + "', ";
+				}
+				// Close line with bracket
+				likeRestrictionUsersLine = likeRestrictionUsersLine.Remove(likeRestrictionUsersLine.Length - 2, 1) + "])" + Environment.NewLine;
+
+				// Write in file
+				File.AppendAllText(FILENAME, likeRestrictionUsersLine);
+			}
+
+			/*=======================================================================================
+			*		Ignoring restriction python function
+			*		Process it all tags in textbox or shows error if there is no tags
+			*			#will ignore the don't like if the description contains
+			*			# one of the given words
+			*			
+			*========================================================================================*/
 
 			string[] ignoreRestrictionStrings = { };
-			string ignoreRestrictionLine = "session.ignore_words = [";
+			string ignoreRestrictionLine = "session.set_ignore_if_contains([";
 
 			//if checked import is done and if not it will skip this block of code
 			if (restrictignore.Checked) 
@@ -131,7 +171,7 @@ namespace InstaPy
 				}
 
 				// Removes processed comma to add closing bracket
-				ignoreRestrictionLine = ignoreRestrictionLine.Remove(ignoreRestrictionLine.Length - 2, 1) + "]"+Environment.NewLine;
+				ignoreRestrictionLine = ignoreRestrictionLine.Remove(ignoreRestrictionLine.Length - 2, 1) + "])"+Environment.NewLine;
 
 				File.AppendAllText(FILENAME, ignoreRestrictionLine);
 			}
@@ -213,7 +253,7 @@ namespace InstaPy
 					else commentSetLine += "'" + item + "', ";
 				}
 				// Removes processed comma to add closing bracket
-				commentSetLine = commentSetLine.Remove(commentSetLine.Length - 2, 1) + "]" + Environment.NewLine;
+				commentSetLine = commentSetLine.Remove(commentSetLine.Length - 2, 1) + "])" + Environment.NewLine;
 
 				File.AppendAllText(FILENAME, commentLine);
 				File.AppendAllText(FILENAME, commentSetLine);
@@ -309,8 +349,7 @@ namespace InstaPy
 			// Removes processed comma to add closing bracket
 			likesFromTagsLine = likesFromTagsLine.Remove(likesFromTagsLine.Length - 2, 1)
 				+ "], amount="+likes_nmbr.Value.ToString()+")" 
-				+ Environment.NewLine + "session.end()" 
-				+ Environment.NewLine;
+				+ Environment.NewLine + "session.end()";
 
 			File.AppendAllText(FILENAME, likesFromTagsLine);
 
