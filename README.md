@@ -1,5 +1,5 @@
 
-# InstaPy Manager
+# [InstaPy Manager](https://github.com/Nemixalone/GUI-tool-for-InstaPy-script/releases)
 
 
 
