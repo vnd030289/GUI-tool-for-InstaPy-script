@@ -1,0 +1,9 @@
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\bin\Debug\InstaPy.exe.config
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\bin\Debug\InstaPy.exe
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\bin\Debug\InstaPy.pdb
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.csprojResolveAssemblyReference.cache
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.Form1.resources
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.Properties.Resources.resources
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.csproj.GenerateResource.Cache
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.exe
+c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.pdb
