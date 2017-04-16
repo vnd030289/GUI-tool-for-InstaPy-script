@@ -1,7 +1,7 @@
 
 # [InstaPy Manager](https://github.com/Nemixalone/GUI-tool-for-InstaPy-script/releases)
 
-
+[![GitHub release](https://img.shields.io/badge/Version-1.0-blue.svg?style=flat-square)](https://github.com/Nemixalone/GUI-tool-for-InstaPy-script/releases)
 
 ## Synopsis
 
@@ -29,4 +29,5 @@ Thanks to all people that contributed to this project.
 
 ## License
 
-MIT License
+[![GitHub license](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/Nemixalone/GUI-tool-for-InstaPy-script/master/LICENSE)
+
