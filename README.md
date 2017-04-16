@@ -3,6 +3,8 @@
 
 [![GitHub release](https://img.shields.io/badge/Version-1.0-blue.svg?style=flat-square)](https://github.com/Nemixalone/GUI-tool-for-InstaPy-script/releases)
 ![lol](https://img.shields.io/badge/Built%20in-C%23-red.svg?style=flat-square)
+[![Build Status](https://travis-ci.org/Nemixalone/GUI-tool-for-InstaPy-script.svg?branch=master)](https://travis-ci.org/Nemixalone/GUI-tool-for-InstaPy-script)
+
 ## Synopsis
 
 Simple GUI Tool for generating [InstaPy](https://github.com/timgrossmann/InstaPy) script for easy use.
