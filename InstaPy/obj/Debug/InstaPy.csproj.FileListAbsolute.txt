@@ -7,3 +7,5 @@ c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug
 c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.csproj.GenerateResource.Cache
 c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.exe
 c:\users\nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.pdb
+C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.About.resources
+C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.InfoUsage.resources

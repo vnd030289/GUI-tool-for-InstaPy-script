@@ -22,5 +22,29 @@ namespace InstaPy.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string usernpass {
+            get {
+                return ((string)(this["usernpass"]));
+            }
+            set {
+                this["usernpass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool readmedont {
+            get {
+                return ((bool)(this["readmedont"]));
+            }
+            set {
+                this["readmedont"] = value;
+            }
+        }
     }
 }

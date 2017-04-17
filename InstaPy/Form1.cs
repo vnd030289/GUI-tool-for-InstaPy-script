@@ -16,7 +16,18 @@ namespace InstaPy
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			// Shows intro message to read all info / usage of the program
-			MessageBox.Show("Please read info/usage before any program start.", "Read me", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			if (Properties.Settings.Default.readmedont)
+			{
+				MessageBox.Show("Please read info/usage before any program start.", "Read me", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			if (!Properties.Settings.Default.usernpass.Equals(string.Empty))
+			{
+				
+				string[] del = { };
+				del = Properties.Settings.Default.usernpass.Split('|');
+				username_txt.Text = del[0];
+				pass_txt.Text = del[1];
+			}
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -27,7 +38,9 @@ namespace InstaPy
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			// Shows About page for program
-			MessageBox.Show("GUI Tool for InstaPy script."+Environment.NewLine+Environment.NewLine + "Vesrion: 1.0" + Environment.NewLine + "Built in C#." + Environment.NewLine + "MIT License." + Environment.NewLine+Environment.NewLine +"InstaPy is utomation Script for \"farming\" Likes, Comments and Followers on Instagram." + Environment.NewLine + "Implemented in Python using the Selenium module." + Environment.NewLine + "MIT License.", "About",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			About bout = new About();
+			bout.Show();
+			//MessageBox.Show("GUI Tool for InstaPy script."+Environment.NewLine+Environment.NewLine + "Vesrion: 1.0" + Environment.NewLine + "Built in C#." + Environment.NewLine + "MIT License." + Environment.NewLine+Environment.NewLine +"InstaPy is utomation Script for \"farming\" Likes, Comments and Followers on Instagram." + Environment.NewLine + "Implemented in Python using the Selenium module." + Environment.NewLine + "MIT License.", "About",MessageBoxButtons.OK,MessageBoxIcon.Information);
 		}
 
 		private void button1_Click_1(object sender, EventArgs e)
@@ -52,6 +65,12 @@ namespace InstaPy
 				// If there is something in textboxes fill in line for sesion and login
 				usernpass = "session = InstaPy(username='" + username_txt.Text + "', password='" + pass_txt.Text + "')" + Environment.NewLine + "session.login()" + Environment.NewLine;
 				File.AppendAllText(FILENAME, usernpass);
+			}
+			if (remember.Checked)
+			{
+				string settingsuser = username_txt.Text+"|"+pass_txt.Text;
+				Properties.Settings.Default.usernpass = settingsuser;
+				Properties.Settings.Default.Save();
 			}
 
 /*====================================================================================
@@ -356,16 +375,38 @@ namespace InstaPy
 			File.WriteAllText("Start.bat", "set PYTHONIOENCODING=UTF-8"+Environment.NewLine+"py "+FILENAME);
 
 			System.Diagnostics.Process.Start("Start.bat");
+
+			
 		}
 
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			
 		}
 
 		private void infoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-
+			InfoUsage info = new InfoUsage();
+			info.Show();
 		}
+
+		private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void deleteLoginInfoToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("Login info deleted.","Deleted",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			Properties.Settings.Default.usernpass = "";
+			Properties.Settings.Default.Save();
+		}
+
+		private void dontShowReadmeInfoToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Properties.Settings.Default.readmedont = false;
+			Properties.Settings.Default.Save();
+		}
+		
 	}
 }
