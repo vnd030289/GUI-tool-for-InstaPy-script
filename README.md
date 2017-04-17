@@ -7,7 +7,7 @@
 
 ## Synopsis
 
-Simple GUI Tool for generating [InstaPy](https://github.com/timgrossmann/InstaPy) script for easy use.
+Simple GUI Tool for generating [InstaPy](https://github.com/timgrossmann/InstaPy) script for easier use.
 
 ## Installation
 
