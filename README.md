@@ -1,5 +1,5 @@
 
-# [InstaPy Manager](https://github.com/Nemixalone/GUI-tool-for-InstaPy-script/releases)
+# [InstaPy GUI](https://github.com/Nemixalone/GUI-tool-for-InstaPy-script/releases)
 
 [![GitHub release](https://img.shields.io/badge/Version-1.0-blue.svg?style=flat-square)](https://github.com/Nemixalone/GUI-tool-for-InstaPy-script/releases)
 ![lol](https://img.shields.io/badge/Built%20in-C%23-red.svg?style=flat-square)
