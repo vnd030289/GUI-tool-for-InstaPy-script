@@ -118,8 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label3.Text" xml:space="preserve">
-    <value>Go to File -&gt; Delete login info to delete credentials.
+    <value>Go to File -&gt; Delete credentials to delete credentials.
 Go to File -&gt; Don't show readme to stop messagebox at the begging.
+Go to File -&gt; Download InstaPy to download
+Go to File -&gt; Download chromedriver to download missing chromedriver
 Info / Usage option opens up this page.
 About option opens About page for more info about this two projects.</value>
   </data>

@@ -65,9 +65,9 @@
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.Location = new System.Drawing.Point(172, 89);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(81, 48);
+			this.label4.Size = new System.Drawing.Size(81, 64);
 			this.label4.TabIndex = 4;
-			this.label4.Text = "Version: 1.2\r\nBuilt with C#\r\nMIT License";
+			this.label4.Text = "Version: 1.3\r\nBuilt with C#\r\nMIT License\r\n\r\n";
 			// 
 			// linkLabel1
 			// 

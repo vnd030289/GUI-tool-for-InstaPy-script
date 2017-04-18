@@ -39,6 +39,10 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deleteLoginInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.dontShowReadmeInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.downloadInstaPyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.restrictignore_txt = new System.Windows.Forms.TextBox();
@@ -73,6 +77,7 @@
 			this.likesfromtags_txt = new System.Windows.Forms.TextBox();
 			this.likesfromtags_lbl = new System.Windows.Forms.Label();
 			this.panel9 = new System.Windows.Forms.Panel();
+			this.remember = new System.Windows.Forms.CheckBox();
 			this.pass_txt = new System.Windows.Forms.TextBox();
 			this.username_txt = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
@@ -80,11 +85,9 @@
 			this.panel10 = new System.Windows.Forms.Panel();
 			this.restrlikesusers = new System.Windows.Forms.TextBox();
 			this.restrictlikesusers = new System.Windows.Forms.CheckBox();
-			this.remember = new System.Windows.Forms.CheckBox();
-			this.deleteLoginInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.dontShowReadmeInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.missing = new System.Windows.Forms.Label();
+			this.downloadChromedriverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.comment_percent)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.following_percent)).BeginInit();
@@ -202,11 +205,41 @@
 			this.exitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteLoginInfoToolStripMenuItem,
             this.dontShowReadmeInfoToolStripMenuItem,
+            this.downloadInstaPyToolStripMenuItem,
+            this.downloadChromedriverToolStripMenuItem,
             this.exitToolStripMenuItem1});
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.exitToolStripMenuItem.Text = "File";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			// 
+			// deleteLoginInfoToolStripMenuItem
+			// 
+			this.deleteLoginInfoToolStripMenuItem.Name = "deleteLoginInfoToolStripMenuItem";
+			this.deleteLoginInfoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.deleteLoginInfoToolStripMenuItem.Text = "Delete credentials";
+			this.deleteLoginInfoToolStripMenuItem.Click += new System.EventHandler(this.deleteLoginInfoToolStripMenuItem_Click);
+			// 
+			// dontShowReadmeInfoToolStripMenuItem
+			// 
+			this.dontShowReadmeInfoToolStripMenuItem.Name = "dontShowReadmeInfoToolStripMenuItem";
+			this.dontShowReadmeInfoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.dontShowReadmeInfoToolStripMenuItem.Text = "Don\'t show readme";
+			this.dontShowReadmeInfoToolStripMenuItem.Click += new System.EventHandler(this.dontShowReadmeInfoToolStripMenuItem_Click);
+			// 
+			// downloadInstaPyToolStripMenuItem
+			// 
+			this.downloadInstaPyToolStripMenuItem.Name = "downloadInstaPyToolStripMenuItem";
+			this.downloadInstaPyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.downloadInstaPyToolStripMenuItem.Text = "Download InstaPy";
+			this.downloadInstaPyToolStripMenuItem.Click += new System.EventHandler(this.downloadInstaPyToolStripMenuItem_Click);
+			// 
+			// exitToolStripMenuItem1
+			// 
+			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+			this.exitToolStripMenuItem1.Text = "Exit";
+			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
 			// 
 			// infoToolStripMenuItem
 			// 
@@ -584,6 +617,16 @@
 			this.panel9.Size = new System.Drawing.Size(565, 100);
 			this.panel9.TabIndex = 34;
 			// 
+			// remember
+			// 
+			this.remember.AutoSize = true;
+			this.remember.Location = new System.Drawing.Point(6, 71);
+			this.remember.Name = "remember";
+			this.remember.Size = new System.Drawing.Size(133, 24);
+			this.remember.TabIndex = 3;
+			this.remember.Text = "Remember me";
+			this.remember.UseVisualStyleBackColor = true;
+			// 
 			// pass_txt
 			// 
 			this.pass_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -647,37 +690,6 @@
 			this.restrictlikesusers.Text = "Restricting Likes Users";
 			this.restrictlikesusers.UseVisualStyleBackColor = true;
 			// 
-			// remember
-			// 
-			this.remember.AutoSize = true;
-			this.remember.Location = new System.Drawing.Point(6, 71);
-			this.remember.Name = "remember";
-			this.remember.Size = new System.Drawing.Size(133, 24);
-			this.remember.TabIndex = 3;
-			this.remember.Text = "Remember me";
-			this.remember.UseVisualStyleBackColor = true;
-			// 
-			// deleteLoginInfoToolStripMenuItem
-			// 
-			this.deleteLoginInfoToolStripMenuItem.Name = "deleteLoginInfoToolStripMenuItem";
-			this.deleteLoginInfoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-			this.deleteLoginInfoToolStripMenuItem.Text = "Delete login info";
-			this.deleteLoginInfoToolStripMenuItem.Click += new System.EventHandler(this.deleteLoginInfoToolStripMenuItem_Click);
-			// 
-			// exitToolStripMenuItem1
-			// 
-			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
-			this.exitToolStripMenuItem1.Text = "Exit";
-			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
-			// 
-			// dontShowReadmeInfoToolStripMenuItem
-			// 
-			this.dontShowReadmeInfoToolStripMenuItem.Name = "dontShowReadmeInfoToolStripMenuItem";
-			this.dontShowReadmeInfoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-			this.dontShowReadmeInfoToolStripMenuItem.Text = "Don\'t show Readme info";
-			this.dontShowReadmeInfoToolStripMenuItem.Click += new System.EventHandler(this.dontShowReadmeInfoToolStripMenuItem_Click);
-			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -688,12 +700,29 @@
 			this.pictureBox1.TabIndex = 7;
 			this.pictureBox1.TabStop = false;
 			// 
+			// missing
+			// 
+			this.missing.AutoSize = true;
+			this.missing.ForeColor = System.Drawing.Color.Red;
+			this.missing.Location = new System.Drawing.Point(112, 90);
+			this.missing.Name = "missing";
+			this.missing.Size = new System.Drawing.Size(0, 20);
+			this.missing.TabIndex = 36;
+			// 
+			// downloadChromedriverToolStripMenuItem
+			// 
+			this.downloadChromedriverToolStripMenuItem.Name = "downloadChromedriverToolStripMenuItem";
+			this.downloadChromedriverToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+			this.downloadChromedriverToolStripMenuItem.Text = "Download chromedriver";
+			this.downloadChromedriverToolStripMenuItem.Click += new System.EventHandler(this.downloadChromedriverToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(589, 903);
+			this.Controls.Add(this.missing);
 			this.Controls.Add(this.panel10);
 			this.Controls.Add(this.panel9);
 			this.Controls.Add(this.panel8);
@@ -813,6 +842,9 @@
 		private System.Windows.Forms.ToolStripMenuItem deleteLoginInfoToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem dontShowReadmeInfoToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem downloadInstaPyToolStripMenuItem;
+		private System.Windows.Forms.Label missing;
+		private System.Windows.Forms.ToolStripMenuItem downloadChromedriverToolStripMenuItem;
 	}
 }
 
