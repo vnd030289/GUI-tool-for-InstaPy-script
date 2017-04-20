@@ -12,7 +12,7 @@ Simple GUI Tool for generating [InstaPy](https://github.com/timgrossmann/InstaPy
 
 ## Feedback
 
-Feel free to open Issue to send feedback or send idea for improvement.
+If you have any suggestions regarding the app feel free to comment on TO DO Issue.
 
 ## Installation
 
