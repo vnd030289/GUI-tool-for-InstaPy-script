@@ -3,7 +3,6 @@ C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\bin\Debug
 C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\bin\Debug\InstaPy.pdb
 C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.About.resources
 C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.Form1.resources
-C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.InfoUsage.resources
 C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.Properties.Resources.resources
 C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.csproj.GenerateResource.Cache
 C:\Users\Nemanja\documents\visual studio 2015\Projects\InstaPy\InstaPy\obj\Debug\InstaPy.exe

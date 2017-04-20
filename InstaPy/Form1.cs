@@ -13,6 +13,9 @@ namespace InstaPy
 		string[] InstaPyfiles = { "__init.py", "clariafai.py", "comment_util.py", "instapy.py", "login_util.py", "like_util.py", "print_log_writer.py", "time_util.py", "unfollow_util.py" };
 		bool nostart = false;
 		string FILENAME = "quickstart.py";
+		bool cant = true;
+		bool cant2 = true;
+		bool cant3 = true;
 		public Form1()
 		{
 			InitializeComponent();
@@ -38,7 +41,7 @@ namespace InstaPy
 				path = Directory.GetCurrentDirectory() + @"\assets";
 				if (!File.Exists(path + @"\chromedriver.exe"))
 				{
-					missing.Text = "Chromedriver.exe is missing.";
+					missing.Text = "Chromedriver is missing.";
 					missing.ForeColor = System.Drawing.Color.Red;
 					nostart = false;
 
@@ -93,9 +96,13 @@ namespace InstaPy
 			}
 			else
 			{
+				#region IMPORT
 				// Import part of python file
 				string import = "from instapy import InstaPy" + Environment.NewLine + "import os" + Environment.NewLine;
 				File.WriteAllText(FILENAME, import);
+				#endregion
+
+				#region USRNAME N PASSWORD
 
 				// Username and Password processing 
 				string usernpass = "";
@@ -106,9 +113,11 @@ namespace InstaPy
 
 					// Set focus to Username
 					username_txt.Focus();
+					cant = false;
 				}
 				else
 				{
+					cant = true;
 					// If there is something in textboxes fill in line for sesion and login
 					usernpass = "session = InstaPy(username='" + username_txt.Text + "', password='" + pass_txt.Text + "')" + Environment.NewLine + "session.login()" + Environment.NewLine;
 					File.AppendAllText(FILENAME, usernpass);
@@ -119,7 +128,9 @@ namespace InstaPy
 					Properties.Settings.Default.usernpass = settingsuser;
 					Properties.Settings.Default.Save();
 				}
+				#endregion
 
+				#region LIKE RESTRICTION TAGS
 				/*====================================================================================
 				*		Like Restriction Tags option
 				*			# searches the description for the given words and won't
@@ -133,6 +144,7 @@ namespace InstaPy
 				// Checks if option is selected
 				if (likerestrict.Checked)
 				{
+					
 					// If selected but no tags shows error message		
 
 					if (likerestrict.Text.Equals(string.Empty))
@@ -159,7 +171,9 @@ namespace InstaPy
 					// Write in file
 					File.AppendAllText(FILENAME, likeRestrictionLine);
 				}
+#endregion
 
+				#region LIKE RESTRICTION USERS
 				/*====================================================================================
 				*		Like Restriction Users option
 				*			# searches the description for the given words and won't
@@ -199,7 +213,9 @@ namespace InstaPy
 					// Write in file
 					File.AppendAllText(FILENAME, likeRestrictionUsersLine);
 				}
+#endregion
 
+				#region IGNORING RESTRICTION
 				/*=======================================================================================
 				*		Ignoring restriction python function
 				*		Process it all tags in textbox or shows error if there is no tags
@@ -244,7 +260,9 @@ namespace InstaPy
 
 					File.AppendAllText(FILENAME, ignoreRestrictionLine);
 				}
+				#endregion
 
+				#region FRIEND EXCLUSION
 				/*=================================================================================================
 				*		Friend exclusion 
 				*		# will prevent commenting on and unfollowing your good friends 
@@ -285,8 +303,9 @@ namespace InstaPy
 
 					File.AppendAllText(FILENAME, friendExclusionLine);
 				}
+#endregion
 
-
+				#region COMMENTING
 				/*=============================================================================================
 				 *			Commenting
 				 *				Enables commenting 
@@ -309,26 +328,35 @@ namespace InstaPy
 						// Comments field gets in focus to type
 						comment_cust_txt.Focus();
 					}
-					else comments = comment_cust_txt.Text.Split(',');
-					// Goes for every comment to add in string
-					foreach (var item in comments)
+					else
 					{
-						// If there is empty comment caused with accident comma (ie. " nice, ") just continue
-						if (item.Equals(string.Empty))
+						comments = comment_cust_txt.Text.Split(',');
+						// Goes for every comment to add in string
+						foreach (var item in comments)
 						{
-							continue;
+							// If there is empty comment caused with accident comma (ie. " nice, ") just continue
+							if (item.Equals(string.Empty))
+							{
+								continue;
+							}
+							// If there is comment add it in line 
+							else {
+								if (emojisupport.Checked)
+								{
+									commentSetLine += "u'" + item + "', ";
+								}else commentSetLine += "'" + item + "', ";
+							} 
 						}
-						// If there is comment add it in line 
-						else commentSetLine += "'" + item + "', ";
+						// Removes processed comma to add closing bracket
+						commentSetLine = commentSetLine.Remove(commentSetLine.Length - 2, 1) + "])" + Environment.NewLine;
+
+						File.AppendAllText(FILENAME, commentLine);
+						File.AppendAllText(FILENAME, commentSetLine);
 					}
-					// Removes processed comma to add closing bracket
-					commentSetLine = commentSetLine.Remove(commentSetLine.Length - 2, 1) + "])" + Environment.NewLine;
-
-					File.AppendAllText(FILENAME, commentLine);
-					File.AppendAllText(FILENAME, commentSetLine);
 				}
+				#endregion
 
-
+				#region FOLLOW
 				/*===============================================================================================
 				 *			Following
 				 *				Set percentage to follow every x/100th user
@@ -343,7 +371,9 @@ namespace InstaPy
 
 					File.AppendAllText(FILENAME, follow);
 				}
+				#endregion
 
+				#region UNFOLLOW
 				/*====================================================================================================
 				 *			Unfollowing
 				 *			#unfollows 10 of the accounts you're following -> instagram will only unfollow 10 before
@@ -360,7 +390,9 @@ namespace InstaPy
 
 					File.AppendAllText(FILENAME, unfollow);
 				}
+				#endregion
 
+				#region FOLLOWER NUMBERS
 				/*=====================================================================================================
 				 *			Interactions based on the number of followers a user has
 				 *			
@@ -385,47 +417,152 @@ namespace InstaPy
 
 					File.AppendAllText(FILENAME, lower);
 				}
+				#endregion
 
+				#region FOLLOW FROM LIST
+				/*========================================================================
+				 *			Follow from list
+				 * 
+				 * ========================================================================*/
+				if (followfromlist.Checked)
+				{
+					string followfromlist2 = "session.follow_by_list(accs, times=1)"+Environment.NewLine;
+					string accs = "accs = ['";
+					string[] acc = { };
+					if (!list_txt.Text.Equals(string.Empty))
+					{
+						acc = list_txt.Text.Split(',');
 
+						foreach (var item in acc)
+						{
+							string item2 = item;
+							item2 += "\',\'";
+							accs += item2;
+						}
+						accs = accs.Remove(accs.Length - 2,2) + "]" +Environment.NewLine;
+
+						File.AppendAllText(FILENAME, accs);
+						File.AppendAllText(FILENAME, followfromlist2);
+					}
+					else MessageBox.Show("Write down some users.","ATTENTION",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+				}
+#endregion
+
+				#region LIKE FROM TAGS
 				/*========================================================================
 				 *			Likes from tags
 				 * 
 				 * ========================================================================*/
 
-				string likesFromTagsLine = "session.like_by_tags([";
-				string[] tags = { };
-				if (likesfromtags_txt.Text.Equals(string.Empty))
+				if (likefromtags.Checked)
 				{
-					// MessageBox is shown
-					MessageBox.Show("ERROR: No tags detected. Write some tags.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-					// Comments field gets in focus to type
-					likesfromtags_txt.Focus();
-				}
-				else tags = likesfromtags_txt.Text.Split(',');
-
-				// Goes for every tag to add in string
-				foreach (var item in tags)
-				{
-					// If there is empty tag caused with accident comma (ie. " nice, ") just continue
-					if (item.Equals(string.Empty))
+					string likesFromTagsLine = "session.like_by_tags([";
+					string[] tags = { };
+					if (likesfromtags_txt.Text.Equals(string.Empty))
 					{
-						continue;
+						// MessageBox is shown
+						MessageBox.Show("ERROR: No tags detected. Write some tags.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+						// Comments field gets in focus to type
+						likesfromtags_txt.Focus();
+						cant2 = false;
 					}
-					// If there is tag add it in line 
-					else likesFromTagsLine += "'" + item + "', ";
+					else
+					{
+						tags = likesfromtags_txt.Text.Split(',');
+						cant2 = true;
+						// Goes for every tag to add in string
+						foreach (var item in tags)
+						{
+							// If there is empty tag caused with accident comma (ie. " nice, ") just continue
+							if (item.Equals(string.Empty))
+							{
+								continue;
+							}
+							// If there is tag add it in line 
+							else likesFromTagsLine += "'" + item + "', ";
+						}
+						likesFromTagsLine = likesFromTagsLine.Remove(likesFromTagsLine.Length - 2, 2) + "], amount=" + likes_nmbr.Value.ToString();
+
+						if (likefromtagsphoto.Checked && likefromtagsvideo.Checked || !likefromtagsphoto.Checked && !likefromtagsvideo.Checked)
+						{
+							// Removes processed comma to add closing bracket
+							likesFromTagsLine += ")" + Environment.NewLine;
+						}
+						else if (likefromtagsphoto.Checked && !likefromtagsvideo.Checked)
+						{
+							likesFromTagsLine += ", media='Photo')" + Environment.NewLine;
+						}
+						else if (!likefromtagsphoto.Checked && likefromtagsvideo.Checked)
+						{
+							likesFromTagsLine += ", media='Video')" + Environment.NewLine;
+						}
+
+
+
+						File.AppendAllText(FILENAME, likesFromTagsLine);
+					}
 				}
-				// Removes processed comma to add closing bracket
-				likesFromTagsLine = likesFromTagsLine.Remove(likesFromTagsLine.Length - 2, 1)
-					+ "], amount=" + likes_nmbr.Value.ToString() + ")"
-					+ Environment.NewLine + "session.end()";
+				#endregion
 
-				File.AppendAllText(FILENAME, likesFromTagsLine);
+				#region LIKE FROM IMAGE
+				/*========================================================================
+				 *			Likes from image
+				 * 
+				 * ========================================================================*/
 
-				File.WriteAllText("Start.bat", "set PYTHONIOENCODING=UTF-8" + Environment.NewLine + "py " + FILENAME);
+				if (likefromimage.Checked)
+				{
+					if (url.Text.Equals(string.Empty))
+					{
+						MessageBox.Show("ERROR: URL is invalid. Paste valid URL.","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+						cant3 = false;
+					}
+					else
+					{
 
-				System.Diagnostics.Process.Start("Start.bat");
+						cant3 = true;	
+						string likesFromImage = "session.like_from_image(url='" + url.Text + "',amount=" + likesfromimage_nmb.Value.ToString();
 
+						if (likefromimagephoto.Checked && likefromimagevideo.Checked || !likefromimagephoto.Checked && !likefromimagevideo.Checked)
+						{
+							likesFromImage += ")";
+						}
+						else if (likefromimagephoto.Checked && !likefromimagevideo.Checked)
+						{
+							likesFromImage += ", media='Photo')";
+						}
+						else if (!likefromimagephoto.Checked && likefromimagevideo.Checked)
+						{
+							likesFromImage += ", media='Video')";
+						}
+						else
+						{
+							likesFromImage += ")";
+						}
+
+						File.AppendAllText(FILENAME, likesFromImage);
+					}
+				}
+				#endregion
+
+				#region RUN
+				/*========================================================================
+				 *			Closing file and running it
+				 * 
+				 * ========================================================================*/
+				if (cant && cant2 &&cant3)
+				{
+					File.AppendAllText(FILENAME, Environment.NewLine + "session.end()");
+
+					File.WriteAllText("Start.bat", "set PYTHONIOENCODING=UTF-8" + Environment.NewLine + "py " + FILENAME);
+
+					System.Diagnostics.Process.Start("Start.bat");
+				}
+				
+
+				#endregion
 			}
 		}
 
@@ -436,55 +573,208 @@ namespace InstaPy
 
 		private void infoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			InfoUsage info = new InfoUsage();
-			info.Show();
+			System.Diagnostics.Process.Start("https://github.com/timgrossmann/InstaPy#getting-started");
+
+			
 		}
 
 		private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			
 		}
 
 		private void deleteLoginInfoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Login info deleted.","Deleted",MessageBoxButtons.OK,MessageBoxIcon.Information);
-			Properties.Settings.Default.usernpass = "";
-			Properties.Settings.Default.Save();
+			
 		}
 
 		private void dontShowReadmeInfoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if (Properties.Settings.Default.readmedont)
-			{
-				Properties.Settings.Default.readmedont = false;
-				dontShowReadmeInfoToolStripMenuItem.Text = "Do show Readme";
-				Properties.Settings.Default.Save();
-			}else
-			{
-				Properties.Settings.Default.readmedont = true;
-				dontShowReadmeInfoToolStripMenuItem.Text = "Don't show Readme";
-				Properties.Settings.Default.Save();
-			}
+			
 			
 		}
 
 		private void downloadInstaPyToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
-			using (var client = new WebClient())
-			{
-				client.DownloadFile("https://github.com/timgrossmann/InstaPy/archive/master.zip", "master.zip");
-			}
 			
-			
-
-			MessageBox.Show("Extract .zip file and copy InstaPy-GUI.exe and paste it into folder.","ATTENTION",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-			this.Close();
 		}
 
 		private void downloadChromedriverToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			
+		}
+
+		private void likes_nmbr_ValueChanged(object sender, EventArgs e)
+		{
+			if(likes_nmbr.Value > 1000)
+			{
+				MessageBox.Show("ATTENTION: Putting amount of likes above 1000 may BAN your account."+Environment.NewLine+"We are not responsible if your account get BAN.","ATTENTION",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+			}
+		}
+
+		private void likefromtags_CheckedChanged(object sender, EventArgs e)
+		{
+			if (likefromtags.Checked)
+			{
+				panel8.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel8.BackColor = System.Drawing.Color.LightSalmon;
+			if (!likefromtags.Checked)
+			{
+
+				likefromimage.Checked = true;
+			}
+		}
+
+		private void likefromimage_CheckedChanged(object sender, EventArgs e)
+		{
+			if (likefromimage.Checked)
+			{
+				panel11.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel11.BackColor = System.Drawing.Color.LightSalmon;
+			if (!likefromimage.Checked)
+			{
+				likefromtags.Checked = true;
+			}
+		}
+
+		private void likerestrict_CheckedChanged(object sender, EventArgs e)
+		{
+			if (likerestrict.Checked)
+			{
+				panel1.BackColor = System.Drawing.Color.LightGreen;
+			}else panel1.BackColor = System.Drawing.Color.LightSalmon;
+			
+		}
+
+		private void restrictlikesusers_CheckedChanged(object sender, EventArgs e)
+		{
+			if (restrictlikesusers.Checked)
+			{
+				panel10.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel10.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void restrictignore_CheckedChanged(object sender, EventArgs e)
+		{
+			if (restrictignore.Checked)
+			{
+				panel2.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel2.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void comment_CheckedChanged(object sender, EventArgs e)
+		{
+			if (comment.Checked)
+			{
+				panel3.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel3.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void following_CheckedChanged(object sender, EventArgs e)
+		{
+			if (following.Checked)
+			{
+				panel4.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel4.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void friendexcl_CheckedChanged(object sender, EventArgs e)
+		{
+			if (friendexcl.Checked)
+			{
+				panel5.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel5.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void followfromlist_CheckedChanged(object sender, EventArgs e)
+		{
+			if (followfromlist.Checked)
+			{
+				panel12.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel12.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void upperfc_CheckedChanged(object sender, EventArgs e)
+		{
+			if (upperfc.Checked || lowerfc.Checked)
+			{
+				panel6.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel6.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void lowerfc_CheckedChanged(object sender, EventArgs e)
+		{
+			if (upperfc.Checked || lowerfc.Checked)
+			{
+				panel6.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel6.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void unfollow_CheckedChanged(object sender, EventArgs e)
+		{
+			if (unfollow.Checked)
+			{
+				panel7.BackColor = System.Drawing.Color.LightGreen;
+			}
+			else panel7.BackColor = System.Drawing.Color.LightSalmon;
+		}
+
+		private void deleteCredentialsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("Login info deleted.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			Properties.Settings.Default.usernpass = "";
+			Properties.Settings.Default.Save();
+		}
+
+		private void dontShowReadmeToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (Properties.Settings.Default.readmedont)
+			{
+				Properties.Settings.Default.readmedont = false;
+				dontShowReadmeToolStripMenuItem.Text = "Do show Readme";
+				Properties.Settings.Default.Save();
+			}
+			else
+			{
+				Properties.Settings.Default.readmedont = true;
+				dontShowReadmeToolStripMenuItem.Text = "Don't show Readme";
+				Properties.Settings.Default.Save();
+			}
+		}
+
+		private void downloadInstaPyFilesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			using (var client = new WebClient())
+			{
+				client.DownloadFile("https://github.com/timgrossmann/InstaPy/archive/master.zip", "master.zip");
+			}
+
+
+
+			MessageBox.Show("Extract .zip file and copy InstaPy-GUI.exe and paste it inside InstaPy-master folder.", "ATTENTION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			this.Close();
+		}
+
+		private void downloadChromedriverToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
 			System.Diagnostics.Process.Start("https://sites.google.com/a/chromium.org/chromedriver/downloads");
+		}
+
+		private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
+		{
+			this.Close();
+
 		}
 	}
 }

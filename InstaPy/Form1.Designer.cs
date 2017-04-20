@@ -38,11 +38,6 @@
 			this.likerestrict_txt = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteLoginInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.dontShowReadmeInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.downloadInstaPyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.restrictignore_txt = new System.Windows.Forms.TextBox();
@@ -53,7 +48,6 @@
 			this.following_percent = new System.Windows.Forms.NumericUpDown();
 			this.label5 = new System.Windows.Forms.Label();
 			this.friendexcl_txt = new System.Windows.Forms.TextBox();
-			this.interaction_lbl = new System.Windows.Forms.Label();
 			this.upperfc = new System.Windows.Forms.CheckBox();
 			this.lowerfc = new System.Windows.Forms.CheckBox();
 			this.unfollow = new System.Windows.Forms.CheckBox();
@@ -75,7 +69,6 @@
 			this.amount_lbl = new System.Windows.Forms.Label();
 			this.tags_lbl = new System.Windows.Forms.Label();
 			this.likesfromtags_txt = new System.Windows.Forms.TextBox();
-			this.likesfromtags_lbl = new System.Windows.Forms.Label();
 			this.panel9 = new System.Windows.Forms.Panel();
 			this.remember = new System.Windows.Forms.CheckBox();
 			this.pass_txt = new System.Windows.Forms.TextBox();
@@ -87,7 +80,29 @@
 			this.restrictlikesusers = new System.Windows.Forms.CheckBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.missing = new System.Windows.Forms.Label();
-			this.downloadChromedriverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.likefromtags = new System.Windows.Forms.CheckBox();
+			this.panel11 = new System.Windows.Forms.Panel();
+			this.likefromimage = new System.Windows.Forms.CheckBox();
+			this.url = new System.Windows.Forms.TextBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.likesfromimage_nmb = new System.Windows.Forms.NumericUpDown();
+			this.likefromtagsphoto = new System.Windows.Forms.CheckBox();
+			this.likefromtagsvideo = new System.Windows.Forms.CheckBox();
+			this.likefromimagevideo = new System.Windows.Forms.CheckBox();
+			this.likefromimagephoto = new System.Windows.Forms.CheckBox();
+			this.commentingPhoto = new System.Windows.Forms.CheckBox();
+			this.commentingVideo = new System.Windows.Forms.CheckBox();
+			this.panel12 = new System.Windows.Forms.Panel();
+			this.followfromlist = new System.Windows.Forms.CheckBox();
+			this.list_txt = new System.Windows.Forms.TextBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.emojisupport = new System.Windows.Forms.CheckBox();
+			this.deleteCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.dontShowReadmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.downloadInstaPyFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.downloadChromedriverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.comment_percent)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.following_percent)).BeginInit();
@@ -107,16 +122,19 @@
 			this.panel9.SuspendLayout();
 			this.panel10.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.panel11.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.likesfromimage_nmb)).BeginInit();
+			this.panel12.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(109, 27);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(213, 23);
 			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(217, 42);
+			this.label1.Size = new System.Drawing.Size(378, 73);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "InstaPy GUI";
 			// 
@@ -129,6 +147,7 @@
 			this.likerestrict.TabIndex = 1;
 			this.likerestrict.Text = "Restricting Likes Tags";
 			this.likerestrict.UseVisualStyleBackColor = true;
+			this.likerestrict.CheckedChanged += new System.EventHandler(this.likerestrict_CheckedChanged);
 			// 
 			// restrictignore
 			// 
@@ -139,6 +158,7 @@
 			this.restrictignore.TabIndex = 2;
 			this.restrictignore.Text = "Ignoring Restrictions";
 			this.restrictignore.UseVisualStyleBackColor = true;
+			this.restrictignore.CheckedChanged += new System.EventHandler(this.restrictignore_CheckedChanged);
 			// 
 			// comment
 			// 
@@ -149,6 +169,7 @@
 			this.comment.TabIndex = 3;
 			this.comment.Text = "Commenting";
 			this.comment.UseVisualStyleBackColor = true;
+			this.comment.CheckedChanged += new System.EventHandler(this.comment_CheckedChanged);
 			// 
 			// following
 			// 
@@ -159,29 +180,31 @@
 			this.following.TabIndex = 4;
 			this.following.Text = "Following";
 			this.following.UseVisualStyleBackColor = true;
+			this.following.CheckedChanged += new System.EventHandler(this.following_CheckedChanged);
 			// 
 			// friendexcl
 			// 
 			this.friendexcl.AutoSize = true;
-			this.friendexcl.Location = new System.Drawing.Point(6, 7);
+			this.friendexcl.Location = new System.Drawing.Point(6, 11);
 			this.friendexcl.Name = "friendexcl";
 			this.friendexcl.Size = new System.Drawing.Size(141, 24);
 			this.friendexcl.TabIndex = 5;
 			this.friendexcl.Text = "Exclude Friends";
 			this.friendexcl.UseVisualStyleBackColor = true;
+			this.friendexcl.CheckedChanged += new System.EventHandler(this.friendexcl_CheckedChanged);
 			// 
 			// likerestrict_txt
 			// 
 			this.likerestrict_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.likerestrict_txt.Location = new System.Drawing.Point(194, 6);
 			this.likerestrict_txt.Name = "likerestrict_txt";
-			this.likerestrict_txt.Size = new System.Drawing.Size(358, 26);
+			this.likerestrict_txt.Size = new System.Drawing.Size(175, 26);
 			this.likerestrict_txt.TabIndex = 8;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(112, 69);
+			this.label2.Location = new System.Drawing.Point(220, 84);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(191, 20);
 			this.label2.TabIndex = 9;
@@ -189,57 +212,20 @@
 			// 
 			// menuStrip1
 			// 
-			this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.menuStrip1.BackColor = System.Drawing.Color.White;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem,
+            this.deleteCredentialsToolStripMenuItem,
+            this.dontShowReadmeToolStripMenuItem,
+            this.downloadInstaPyFilesToolStripMenuItem,
+            this.downloadChromedriverToolStripMenuItem1,
             this.infoToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.exitToolStripMenuItem2});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(589, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
 			this.menuStrip1.TabIndex = 10;
 			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// exitToolStripMenuItem
-			// 
-			this.exitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteLoginInfoToolStripMenuItem,
-            this.dontShowReadmeInfoToolStripMenuItem,
-            this.downloadInstaPyToolStripMenuItem,
-            this.downloadChromedriverToolStripMenuItem,
-            this.exitToolStripMenuItem1});
-			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-			this.exitToolStripMenuItem.Text = "File";
-			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-			// 
-			// deleteLoginInfoToolStripMenuItem
-			// 
-			this.deleteLoginInfoToolStripMenuItem.Name = "deleteLoginInfoToolStripMenuItem";
-			this.deleteLoginInfoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-			this.deleteLoginInfoToolStripMenuItem.Text = "Delete credentials";
-			this.deleteLoginInfoToolStripMenuItem.Click += new System.EventHandler(this.deleteLoginInfoToolStripMenuItem_Click);
-			// 
-			// dontShowReadmeInfoToolStripMenuItem
-			// 
-			this.dontShowReadmeInfoToolStripMenuItem.Name = "dontShowReadmeInfoToolStripMenuItem";
-			this.dontShowReadmeInfoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-			this.dontShowReadmeInfoToolStripMenuItem.Text = "Don\'t show readme";
-			this.dontShowReadmeInfoToolStripMenuItem.Click += new System.EventHandler(this.dontShowReadmeInfoToolStripMenuItem_Click);
-			// 
-			// downloadInstaPyToolStripMenuItem
-			// 
-			this.downloadInstaPyToolStripMenuItem.Name = "downloadInstaPyToolStripMenuItem";
-			this.downloadInstaPyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-			this.downloadInstaPyToolStripMenuItem.Text = "Download InstaPy";
-			this.downloadInstaPyToolStripMenuItem.Click += new System.EventHandler(this.downloadInstaPyToolStripMenuItem_Click);
-			// 
-			// exitToolStripMenuItem1
-			// 
-			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-			this.exitToolStripMenuItem1.Text = "Exit";
-			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
 			// 
 			// infoToolStripMenuItem
 			// 
@@ -260,7 +246,7 @@
 			this.restrictignore_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.restrictignore_txt.Location = new System.Drawing.Point(180, 6);
 			this.restrictignore_txt.Name = "restrictignore_txt";
-			this.restrictignore_txt.Size = new System.Drawing.Size(373, 26);
+			this.restrictignore_txt.Size = new System.Drawing.Size(189, 26);
 			this.restrictignore_txt.TabIndex = 11;
 			// 
 			// comment_percent
@@ -303,12 +289,12 @@
 			this.comment_cust_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.comment_cust_txt.Location = new System.Drawing.Point(174, 55);
 			this.comment_cust_txt.Name = "comment_cust_txt";
-			this.comment_cust_txt.Size = new System.Drawing.Size(378, 26);
+			this.comment_cust_txt.Size = new System.Drawing.Size(195, 26);
 			this.comment_cust_txt.TabIndex = 15;
 			// 
 			// following_percent
 			// 
-			this.following_percent.Location = new System.Drawing.Point(93, 29);
+			this.following_percent.Location = new System.Drawing.Point(93, 27);
 			this.following_percent.Minimum = new decimal(new int[] {
             1,
             0,
@@ -326,7 +312,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(24, 31);
+			this.label5.Location = new System.Drawing.Point(24, 29);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(64, 20);
 			this.label5.TabIndex = 17;
@@ -335,86 +321,86 @@
 			// friendexcl_txt
 			// 
 			this.friendexcl_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.friendexcl_txt.Location = new System.Drawing.Point(153, 5);
+			this.friendexcl_txt.Location = new System.Drawing.Point(153, 9);
 			this.friendexcl_txt.Name = "friendexcl_txt";
-			this.friendexcl_txt.Size = new System.Drawing.Size(399, 26);
+			this.friendexcl_txt.Size = new System.Drawing.Size(216, 26);
 			this.friendexcl_txt.TabIndex = 18;
-			// 
-			// interaction_lbl
-			// 
-			this.interaction_lbl.AutoSize = true;
-			this.interaction_lbl.Location = new System.Drawing.Point(2, 7);
-			this.interaction_lbl.Name = "interaction_lbl";
-			this.interaction_lbl.Size = new System.Drawing.Size(410, 20);
-			this.interaction_lbl.TabIndex = 19;
-			this.interaction_lbl.Text = "Interactions based on the number of followers a user has";
 			// 
 			// upperfc
 			// 
 			this.upperfc.AutoSize = true;
-			this.upperfc.Location = new System.Drawing.Point(6, 41);
+			this.upperfc.Location = new System.Drawing.Point(6, 6);
 			this.upperfc.Name = "upperfc";
 			this.upperfc.Size = new System.Drawing.Size(182, 24);
 			this.upperfc.TabIndex = 20;
 			this.upperfc.Text = "Upper Follower Count";
 			this.upperfc.UseVisualStyleBackColor = true;
+			this.upperfc.CheckedChanged += new System.EventHandler(this.upperfc_CheckedChanged);
 			// 
 			// lowerfc
 			// 
 			this.lowerfc.AutoSize = true;
-			this.lowerfc.Location = new System.Drawing.Point(6, 71);
+			this.lowerfc.Location = new System.Drawing.Point(6, 36);
 			this.lowerfc.Name = "lowerfc";
 			this.lowerfc.Size = new System.Drawing.Size(181, 24);
 			this.lowerfc.TabIndex = 20;
 			this.lowerfc.Text = "Lower Follower Count";
 			this.lowerfc.UseVisualStyleBackColor = true;
+			this.lowerfc.CheckedChanged += new System.EventHandler(this.lowerfc_CheckedChanged);
 			// 
 			// unfollow
 			// 
 			this.unfollow.AutoSize = true;
-			this.unfollow.Location = new System.Drawing.Point(6, 8);
+			this.unfollow.Location = new System.Drawing.Point(6, 6);
 			this.unfollow.Name = "unfollow";
 			this.unfollow.Size = new System.Drawing.Size(110, 24);
 			this.unfollow.TabIndex = 23;
 			this.unfollow.Text = "Unfollowing";
 			this.unfollow.UseVisualStyleBackColor = true;
+			this.unfollow.CheckedChanged += new System.EventHandler(this.unfollow_CheckedChanged);
 			// 
 			// panel1
 			// 
+			this.panel1.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel1.Controls.Add(this.likerestrict);
 			this.panel1.Controls.Add(this.likerestrict_txt);
 			this.panel1.Location = new System.Drawing.Point(12, 225);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(565, 40);
+			this.panel1.Size = new System.Drawing.Size(385, 40);
 			this.panel1.TabIndex = 24;
 			// 
 			// panel2
 			// 
+			this.panel2.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.restrictignore_txt);
 			this.panel2.Controls.Add(this.restrictignore);
 			this.panel2.Location = new System.Drawing.Point(12, 317);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(565, 40);
+			this.panel2.Size = new System.Drawing.Size(385, 40);
 			this.panel2.TabIndex = 25;
 			// 
 			// panel3
 			// 
+			this.panel3.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel3.Controls.Add(this.emojisupport);
+			this.panel3.Controls.Add(this.commentingVideo);
+			this.panel3.Controls.Add(this.commentingPhoto);
 			this.panel3.Controls.Add(this.comment_cust_txt);
 			this.panel3.Controls.Add(this.comment);
 			this.panel3.Controls.Add(this.comment_percent);
 			this.panel3.Controls.Add(this.label3);
 			this.panel3.Controls.Add(this.label4);
-			this.panel3.Location = new System.Drawing.Point(12, 363);
+			this.panel3.Location = new System.Drawing.Point(403, 225);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(565, 93);
+			this.panel3.Size = new System.Drawing.Size(385, 86);
 			this.panel3.TabIndex = 26;
 			// 
 			// unfollow_nmbr
 			// 
-			this.unfollow_nmbr.Location = new System.Drawing.Point(123, 7);
+			this.unfollow_nmbr.Location = new System.Drawing.Point(123, 5);
 			this.unfollow_nmbr.Maximum = new decimal(new int[] {
             100000000,
             0,
@@ -431,20 +417,21 @@
 			// 
 			// panel4
 			// 
+			this.panel4.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel4.Controls.Add(this.followtimes);
 			this.panel4.Controls.Add(this.label8);
 			this.panel4.Controls.Add(this.following);
 			this.panel4.Controls.Add(this.following_percent);
 			this.panel4.Controls.Add(this.label5);
-			this.panel4.Location = new System.Drawing.Point(12, 462);
+			this.panel4.Location = new System.Drawing.Point(12, 363);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(565, 65);
+			this.panel4.Size = new System.Drawing.Size(385, 60);
 			this.panel4.TabIndex = 28;
 			// 
 			// followtimes
 			// 
-			this.followtimes.Location = new System.Drawing.Point(229, 29);
+			this.followtimes.Location = new System.Drawing.Point(229, 27);
 			this.followtimes.Name = "followtimes";
 			this.followtimes.Size = new System.Drawing.Size(106, 26);
 			this.followtimes.TabIndex = 19;
@@ -457,7 +444,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(174, 31);
+			this.label8.Location = new System.Drawing.Point(174, 29);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(51, 20);
 			this.label8.TabIndex = 18;
@@ -465,50 +452,51 @@
 			// 
 			// panel5
 			// 
+			this.panel5.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel5.Controls.Add(this.friendexcl_txt);
 			this.panel5.Controls.Add(this.friendexcl);
-			this.panel5.Location = new System.Drawing.Point(12, 533);
+			this.panel5.Location = new System.Drawing.Point(12, 502);
 			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(565, 40);
+			this.panel5.Size = new System.Drawing.Size(385, 46);
 			this.panel5.TabIndex = 29;
 			// 
 			// panel6
 			// 
+			this.panel6.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel6.Controls.Add(this.lowerfc_percent);
 			this.panel6.Controls.Add(this.upperfc_percent);
 			this.panel6.Controls.Add(this.lowerfc);
-			this.panel6.Controls.Add(this.interaction_lbl);
 			this.panel6.Controls.Add(this.upperfc);
-			this.panel6.Location = new System.Drawing.Point(12, 579);
+			this.panel6.Location = new System.Drawing.Point(12, 429);
 			this.panel6.Name = "panel6";
-			this.panel6.Size = new System.Drawing.Size(565, 109);
+			this.panel6.Size = new System.Drawing.Size(385, 67);
 			this.panel6.TabIndex = 30;
 			// 
 			// lowerfc_percent
 			// 
-			this.lowerfc_percent.Location = new System.Drawing.Point(194, 70);
+			this.lowerfc_percent.Location = new System.Drawing.Point(194, 35);
 			this.lowerfc_percent.Maximum = new decimal(new int[] {
             1410065408,
             2,
             0,
             0});
 			this.lowerfc_percent.Name = "lowerfc_percent";
-			this.lowerfc_percent.Size = new System.Drawing.Size(218, 26);
+			this.lowerfc_percent.Size = new System.Drawing.Size(184, 26);
 			this.lowerfc_percent.TabIndex = 21;
 			// 
 			// upperfc_percent
 			// 
 			this.upperfc_percent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.upperfc_percent.Location = new System.Drawing.Point(194, 40);
+			this.upperfc_percent.Location = new System.Drawing.Point(194, 5);
 			this.upperfc_percent.Maximum = new decimal(new int[] {
             1410065408,
             2,
             0,
             0});
 			this.upperfc_percent.Name = "upperfc_percent";
-			this.upperfc_percent.Size = new System.Drawing.Size(218, 26);
+			this.upperfc_percent.Size = new System.Drawing.Size(184, 26);
 			this.upperfc_percent.TabIndex = 21;
 			this.upperfc_percent.ThousandsSeparator = true;
 			this.upperfc_percent.Value = new decimal(new int[] {
@@ -519,19 +507,20 @@
 			// 
 			// panel7
 			// 
+			this.panel7.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel7.Controls.Add(this.unfollow);
 			this.panel7.Controls.Add(this.unfollow_nmbr);
-			this.panel7.Location = new System.Drawing.Point(12, 694);
+			this.panel7.Location = new System.Drawing.Point(403, 317);
 			this.panel7.Name = "panel7";
-			this.panel7.Size = new System.Drawing.Size(565, 40);
+			this.panel7.Size = new System.Drawing.Size(385, 40);
 			this.panel7.TabIndex = 31;
 			// 
 			// run
 			// 
 			this.run.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.run.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.run.Location = new System.Drawing.Point(155, 846);
+			this.run.Location = new System.Drawing.Point(261, 636);
 			this.run.Name = "run";
 			this.run.Size = new System.Drawing.Size(278, 42);
 			this.run.TabIndex = 32;
@@ -541,20 +530,23 @@
 			// 
 			// panel8
 			// 
+			this.panel8.BackColor = System.Drawing.Color.LightGreen;
 			this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel8.Controls.Add(this.likefromtagsvideo);
+			this.panel8.Controls.Add(this.likefromtagsphoto);
+			this.panel8.Controls.Add(this.likefromtags);
 			this.panel8.Controls.Add(this.likes_nmbr);
 			this.panel8.Controls.Add(this.amount_lbl);
 			this.panel8.Controls.Add(this.tags_lbl);
 			this.panel8.Controls.Add(this.likesfromtags_txt);
-			this.panel8.Controls.Add(this.likesfromtags_lbl);
-			this.panel8.Location = new System.Drawing.Point(12, 740);
+			this.panel8.Location = new System.Drawing.Point(403, 363);
 			this.panel8.Name = "panel8";
-			this.panel8.Size = new System.Drawing.Size(565, 97);
+			this.panel8.Size = new System.Drawing.Size(385, 133);
 			this.panel8.TabIndex = 33;
 			// 
 			// likes_nmbr
 			// 
-			this.likes_nmbr.Location = new System.Drawing.Point(94, 62);
+			this.likes_nmbr.Location = new System.Drawing.Point(94, 66);
 			this.likes_nmbr.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -568,11 +560,12 @@
             0,
             0,
             0});
+			this.likes_nmbr.ValueChanged += new System.EventHandler(this.likes_nmbr_ValueChanged);
 			// 
 			// amount_lbl
 			// 
 			this.amount_lbl.AutoSize = true;
-			this.amount_lbl.Location = new System.Drawing.Point(24, 64);
+			this.amount_lbl.Location = new System.Drawing.Point(24, 68);
 			this.amount_lbl.Name = "amount_lbl";
 			this.amount_lbl.Size = new System.Drawing.Size(65, 20);
 			this.amount_lbl.TabIndex = 3;
@@ -592,29 +585,21 @@
 			this.likesfromtags_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.likesfromtags_txt.Location = new System.Drawing.Point(69, 33);
 			this.likesfromtags_txt.Name = "likesfromtags_txt";
-			this.likesfromtags_txt.Size = new System.Drawing.Size(485, 26);
+			this.likesfromtags_txt.Size = new System.Drawing.Size(280, 26);
 			this.likesfromtags_txt.TabIndex = 1;
-			// 
-			// likesfromtags_lbl
-			// 
-			this.likesfromtags_lbl.AutoSize = true;
-			this.likesfromtags_lbl.Location = new System.Drawing.Point(4, 10);
-			this.likesfromtags_lbl.Name = "likesfromtags_lbl";
-			this.likesfromtags_lbl.Size = new System.Drawing.Size(118, 20);
-			this.likesfromtags_lbl.TabIndex = 0;
-			this.likesfromtags_lbl.Text = "Like From Tags";
 			// 
 			// panel9
 			// 
+			this.panel9.BackColor = System.Drawing.Color.LightGreen;
 			this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel9.Controls.Add(this.remember);
 			this.panel9.Controls.Add(this.pass_txt);
 			this.panel9.Controls.Add(this.username_txt);
 			this.panel9.Controls.Add(this.label7);
 			this.panel9.Controls.Add(this.label6);
-			this.panel9.Location = new System.Drawing.Point(12, 119);
+			this.panel9.Location = new System.Drawing.Point(225, 119);
 			this.panel9.Name = "panel9";
-			this.panel9.Size = new System.Drawing.Size(565, 100);
+			this.panel9.Size = new System.Drawing.Size(352, 100);
 			this.panel9.TabIndex = 34;
 			// 
 			// remember
@@ -633,7 +618,7 @@
 			this.pass_txt.Location = new System.Drawing.Point(91, 43);
 			this.pass_txt.Name = "pass_txt";
 			this.pass_txt.PasswordChar = '*';
-			this.pass_txt.Size = new System.Drawing.Size(461, 26);
+			this.pass_txt.Size = new System.Drawing.Size(248, 26);
 			this.pass_txt.TabIndex = 2;
 			// 
 			// username_txt
@@ -641,7 +626,7 @@
 			this.username_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.username_txt.Location = new System.Drawing.Point(91, 10);
 			this.username_txt.Name = "username_txt";
-			this.username_txt.Size = new System.Drawing.Size(461, 26);
+			this.username_txt.Size = new System.Drawing.Size(248, 26);
 			this.username_txt.TabIndex = 2;
 			// 
 			// label7
@@ -664,12 +649,13 @@
 			// 
 			// panel10
 			// 
+			this.panel10.BackColor = System.Drawing.Color.LightSalmon;
 			this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel10.Controls.Add(this.restrlikesusers);
 			this.panel10.Controls.Add(this.restrictlikesusers);
 			this.panel10.Location = new System.Drawing.Point(12, 271);
 			this.panel10.Name = "panel10";
-			this.panel10.Size = new System.Drawing.Size(565, 40);
+			this.panel10.Size = new System.Drawing.Size(385, 40);
 			this.panel10.TabIndex = 35;
 			// 
 			// restrlikesusers
@@ -677,7 +663,7 @@
 			this.restrlikesusers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.restrlikesusers.Location = new System.Drawing.Point(204, 6);
 			this.restrlikesusers.Name = "restrlikesusers";
-			this.restrlikesusers.Size = new System.Drawing.Size(349, 26);
+			this.restrlikesusers.Size = new System.Drawing.Size(165, 26);
 			this.restrlikesusers.TabIndex = 1;
 			// 
 			// restrictlikesusers
@@ -689,13 +675,14 @@
 			this.restrictlikesusers.TabIndex = 0;
 			this.restrictlikesusers.Text = "Restricting Likes Users";
 			this.restrictlikesusers.UseVisualStyleBackColor = true;
+			this.restrictlikesusers.CheckedChanged += new System.EventHandler(this.restrictlikesusers_CheckedChanged);
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(12, 27);
+			this.pictureBox1.Location = new System.Drawing.Point(10, 24);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(90, 86);
+			this.pictureBox1.Size = new System.Drawing.Size(201, 195);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 7;
 			this.pictureBox1.TabStop = false;
@@ -703,26 +690,251 @@
 			// missing
 			// 
 			this.missing.AutoSize = true;
+			this.missing.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.missing.ForeColor = System.Drawing.Color.Red;
-			this.missing.Location = new System.Drawing.Point(112, 90);
+			this.missing.Location = new System.Drawing.Point(6, 647);
 			this.missing.Name = "missing";
-			this.missing.Size = new System.Drawing.Size(0, 20);
+			this.missing.Size = new System.Drawing.Size(142, 31);
 			this.missing.TabIndex = 36;
+			this.missing.Text = "========";
 			// 
-			// downloadChromedriverToolStripMenuItem
+			// likefromtags
 			// 
-			this.downloadChromedriverToolStripMenuItem.Name = "downloadChromedriverToolStripMenuItem";
-			this.downloadChromedriverToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-			this.downloadChromedriverToolStripMenuItem.Text = "Download chromedriver";
-			this.downloadChromedriverToolStripMenuItem.Click += new System.EventHandler(this.downloadChromedriverToolStripMenuItem_Click);
+			this.likefromtags.AutoSize = true;
+			this.likefromtags.Checked = true;
+			this.likefromtags.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.likefromtags.Location = new System.Drawing.Point(6, 3);
+			this.likefromtags.Name = "likefromtags";
+			this.likefromtags.Size = new System.Drawing.Size(137, 24);
+			this.likefromtags.TabIndex = 5;
+			this.likefromtags.Text = "Like From Tags";
+			this.likefromtags.UseVisualStyleBackColor = true;
+			this.likefromtags.CheckedChanged += new System.EventHandler(this.likefromtags_CheckedChanged);
+			// 
+			// panel11
+			// 
+			this.panel11.BackColor = System.Drawing.Color.LightSalmon;
+			this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel11.Controls.Add(this.likefromimagephoto);
+			this.panel11.Controls.Add(this.likefromimagevideo);
+			this.panel11.Controls.Add(this.likesfromimage_nmb);
+			this.panel11.Controls.Add(this.label10);
+			this.panel11.Controls.Add(this.label9);
+			this.panel11.Controls.Add(this.url);
+			this.panel11.Controls.Add(this.likefromimage);
+			this.panel11.Location = new System.Drawing.Point(403, 502);
+			this.panel11.Name = "panel11";
+			this.panel11.Size = new System.Drawing.Size(385, 121);
+			this.panel11.TabIndex = 37;
+			// 
+			// likefromimage
+			// 
+			this.likefromimage.AutoSize = true;
+			this.likefromimage.Location = new System.Drawing.Point(6, 3);
+			this.likefromimage.Name = "likefromimage";
+			this.likefromimage.Size = new System.Drawing.Size(147, 24);
+			this.likefromimage.TabIndex = 0;
+			this.likefromimage.Text = "Like From Image";
+			this.likefromimage.UseVisualStyleBackColor = true;
+			this.likefromimage.CheckedChanged += new System.EventHandler(this.likefromimage_CheckedChanged);
+			// 
+			// url
+			// 
+			this.url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.url.Location = new System.Drawing.Point(72, 29);
+			this.url.Name = "url";
+			this.url.Size = new System.Drawing.Size(277, 26);
+			this.url.TabIndex = 1;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(24, 32);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(42, 20);
+			this.label9.TabIndex = 2;
+			this.label9.Text = "URL";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(25, 61);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(65, 20);
+			this.label10.TabIndex = 3;
+			this.label10.Text = "Amount";
+			// 
+			// likesfromimage_nmb
+			// 
+			this.likesfromimage_nmb.Location = new System.Drawing.Point(95, 59);
+			this.likesfromimage_nmb.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+			this.likesfromimage_nmb.Name = "likesfromimage_nmb";
+			this.likesfromimage_nmb.Size = new System.Drawing.Size(192, 26);
+			this.likesfromimage_nmb.TabIndex = 4;
+			this.likesfromimage_nmb.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			// 
+			// likefromtagsphoto
+			// 
+			this.likefromtagsphoto.AutoSize = true;
+			this.likefromtagsphoto.Location = new System.Drawing.Point(6, 95);
+			this.likefromtagsphoto.Name = "likefromtagsphoto";
+			this.likefromtagsphoto.Size = new System.Drawing.Size(70, 24);
+			this.likefromtagsphoto.TabIndex = 6;
+			this.likefromtagsphoto.Text = "Photo";
+			this.likefromtagsphoto.UseVisualStyleBackColor = true;
+			// 
+			// likefromtagsvideo
+			// 
+			this.likefromtagsvideo.AutoSize = true;
+			this.likefromtagsvideo.Location = new System.Drawing.Point(82, 95);
+			this.likefromtagsvideo.Name = "likefromtagsvideo";
+			this.likefromtagsvideo.Size = new System.Drawing.Size(69, 24);
+			this.likefromtagsvideo.TabIndex = 7;
+			this.likefromtagsvideo.Text = "Video";
+			this.likefromtagsvideo.UseVisualStyleBackColor = true;
+			// 
+			// likefromimagevideo
+			// 
+			this.likefromimagevideo.AutoSize = true;
+			this.likefromimagevideo.Location = new System.Drawing.Point(82, 91);
+			this.likefromimagevideo.Name = "likefromimagevideo";
+			this.likefromimagevideo.Size = new System.Drawing.Size(69, 24);
+			this.likefromimagevideo.TabIndex = 9;
+			this.likefromimagevideo.Text = "Video";
+			this.likefromimagevideo.UseVisualStyleBackColor = true;
+			// 
+			// likefromimagephoto
+			// 
+			this.likefromimagephoto.AutoSize = true;
+			this.likefromimagephoto.Location = new System.Drawing.Point(6, 91);
+			this.likefromimagephoto.Name = "likefromimagephoto";
+			this.likefromimagephoto.Size = new System.Drawing.Size(70, 24);
+			this.likefromimagephoto.TabIndex = 8;
+			this.likefromimagephoto.Text = "Photo";
+			this.likefromimagephoto.UseVisualStyleBackColor = true;
+			// 
+			// commentingPhoto
+			// 
+			this.commentingPhoto.AutoSize = true;
+			this.commentingPhoto.Location = new System.Drawing.Point(174, 25);
+			this.commentingPhoto.Name = "commentingPhoto";
+			this.commentingPhoto.Size = new System.Drawing.Size(70, 24);
+			this.commentingPhoto.TabIndex = 16;
+			this.commentingPhoto.Text = "Photo";
+			this.commentingPhoto.UseVisualStyleBackColor = true;
+			// 
+			// commentingVideo
+			// 
+			this.commentingVideo.AutoSize = true;
+			this.commentingVideo.Location = new System.Drawing.Point(242, 25);
+			this.commentingVideo.Name = "commentingVideo";
+			this.commentingVideo.Size = new System.Drawing.Size(69, 24);
+			this.commentingVideo.TabIndex = 17;
+			this.commentingVideo.Text = "Video";
+			this.commentingVideo.UseVisualStyleBackColor = true;
+			// 
+			// panel12
+			// 
+			this.panel12.BackColor = System.Drawing.Color.LightSalmon;
+			this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel12.Controls.Add(this.label11);
+			this.panel12.Controls.Add(this.list_txt);
+			this.panel12.Controls.Add(this.followfromlist);
+			this.panel12.Location = new System.Drawing.Point(12, 554);
+			this.panel12.Name = "panel12";
+			this.panel12.Size = new System.Drawing.Size(385, 69);
+			this.panel12.TabIndex = 38;
+			// 
+			// followfromlist
+			// 
+			this.followfromlist.AutoSize = true;
+			this.followfromlist.Location = new System.Drawing.Point(6, 6);
+			this.followfromlist.Name = "followfromlist";
+			this.followfromlist.Size = new System.Drawing.Size(138, 24);
+			this.followfromlist.TabIndex = 0;
+			this.followfromlist.Text = "Follow from List";
+			this.followfromlist.UseVisualStyleBackColor = true;
+			this.followfromlist.CheckedChanged += new System.EventHandler(this.followfromlist_CheckedChanged);
+			// 
+			// list_txt
+			// 
+			this.list_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.list_txt.Location = new System.Drawing.Point(64, 29);
+			this.list_txt.Name = "list_txt";
+			this.list_txt.Size = new System.Drawing.Size(314, 26);
+			this.list_txt.TabIndex = 1;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(24, 32);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(34, 20);
+			this.label11.TabIndex = 2;
+			this.label11.Text = "List";
+			// 
+			// emojisupport
+			// 
+			this.emojisupport.AutoSize = true;
+			this.emojisupport.Location = new System.Drawing.Point(313, 25);
+			this.emojisupport.Name = "emojisupport";
+			this.emojisupport.Size = new System.Drawing.Size(67, 24);
+			this.emojisupport.TabIndex = 18;
+			this.emojisupport.Text = "Emoji";
+			this.emojisupport.UseVisualStyleBackColor = true;
+			// 
+			// deleteCredentialsToolStripMenuItem
+			// 
+			this.deleteCredentialsToolStripMenuItem.Name = "deleteCredentialsToolStripMenuItem";
+			this.deleteCredentialsToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+			this.deleteCredentialsToolStripMenuItem.Text = "Delete credentials";
+			this.deleteCredentialsToolStripMenuItem.Click += new System.EventHandler(this.deleteCredentialsToolStripMenuItem_Click);
+			// 
+			// dontShowReadmeToolStripMenuItem
+			// 
+			this.dontShowReadmeToolStripMenuItem.Name = "dontShowReadmeToolStripMenuItem";
+			this.dontShowReadmeToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+			this.dontShowReadmeToolStripMenuItem.Text = "Don\'t show readme";
+			this.dontShowReadmeToolStripMenuItem.Click += new System.EventHandler(this.dontShowReadmeToolStripMenuItem_Click);
+			// 
+			// downloadInstaPyFilesToolStripMenuItem
+			// 
+			this.downloadInstaPyFilesToolStripMenuItem.Name = "downloadInstaPyFilesToolStripMenuItem";
+			this.downloadInstaPyFilesToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+			this.downloadInstaPyFilesToolStripMenuItem.Text = "Download InstaPy files";
+			this.downloadInstaPyFilesToolStripMenuItem.Click += new System.EventHandler(this.downloadInstaPyFilesToolStripMenuItem_Click);
+			// 
+			// downloadChromedriverToolStripMenuItem1
+			// 
+			this.downloadChromedriverToolStripMenuItem1.Name = "downloadChromedriverToolStripMenuItem1";
+			this.downloadChromedriverToolStripMenuItem1.Size = new System.Drawing.Size(149, 20);
+			this.downloadChromedriverToolStripMenuItem1.Text = "Download Chromedriver";
+			this.downloadChromedriverToolStripMenuItem1.Click += new System.EventHandler(this.downloadChromedriverToolStripMenuItem1_Click);
+			// 
+			// exitToolStripMenuItem2
+			// 
+			this.exitToolStripMenuItem2.Name = "exitToolStripMenuItem2";
+			this.exitToolStripMenuItem2.Size = new System.Drawing.Size(37, 20);
+			this.exitToolStripMenuItem2.Text = "Exit";
+			this.exitToolStripMenuItem2.Click += new System.EventHandler(this.exitToolStripMenuItem2_Click);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(589, 903);
+			this.BackColor = System.Drawing.Color.White;
+			this.ClientSize = new System.Drawing.Size(800, 693);
 			this.Controls.Add(this.missing);
+			this.Controls.Add(this.panel12);
+			this.Controls.Add(this.panel11);
 			this.Controls.Add(this.panel10);
 			this.Controls.Add(this.panel9);
 			this.Controls.Add(this.panel8);
@@ -744,7 +956,6 @@
 			this.MainMenuStrip = this.menuStrip1;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MaximizeBox = false;
-			this.MinimizeBox = false;
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "InstaPy GUI";
@@ -779,6 +990,11 @@
 			this.panel10.ResumeLayout(false);
 			this.panel10.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.panel11.ResumeLayout(false);
+			this.panel11.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.likesfromimage_nmb)).EndInit();
+			this.panel12.ResumeLayout(false);
+			this.panel12.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -796,7 +1012,6 @@
 		private System.Windows.Forms.TextBox likerestrict_txt;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.TextBox restrictignore_txt;
@@ -807,7 +1022,6 @@
 		private System.Windows.Forms.NumericUpDown following_percent;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox friendexcl_txt;
-		private System.Windows.Forms.Label interaction_lbl;
 		private System.Windows.Forms.CheckBox upperfc;
 		private System.Windows.Forms.CheckBox lowerfc;
 		private System.Windows.Forms.CheckBox unfollow;
@@ -827,7 +1041,6 @@
 		private System.Windows.Forms.Label amount_lbl;
 		private System.Windows.Forms.Label tags_lbl;
 		private System.Windows.Forms.TextBox likesfromtags_txt;
-		private System.Windows.Forms.Label likesfromtags_lbl;
 		private System.Windows.Forms.Panel panel9;
 		private System.Windows.Forms.TextBox pass_txt;
 		private System.Windows.Forms.TextBox username_txt;
@@ -839,12 +1052,30 @@
 		private System.Windows.Forms.TextBox restrlikesusers;
 		private System.Windows.Forms.CheckBox restrictlikesusers;
 		private System.Windows.Forms.CheckBox remember;
-		private System.Windows.Forms.ToolStripMenuItem deleteLoginInfoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem dontShowReadmeInfoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem downloadInstaPyToolStripMenuItem;
 		private System.Windows.Forms.Label missing;
-		private System.Windows.Forms.ToolStripMenuItem downloadChromedriverToolStripMenuItem;
+		private System.Windows.Forms.CheckBox likefromtags;
+		private System.Windows.Forms.Panel panel11;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.TextBox url;
+		private System.Windows.Forms.CheckBox likefromimage;
+		private System.Windows.Forms.NumericUpDown likesfromimage_nmb;
+		private System.Windows.Forms.CheckBox likefromtagsvideo;
+		private System.Windows.Forms.CheckBox likefromtagsphoto;
+		private System.Windows.Forms.CheckBox likefromimagephoto;
+		private System.Windows.Forms.CheckBox likefromimagevideo;
+		private System.Windows.Forms.CheckBox commentingVideo;
+		private System.Windows.Forms.CheckBox commentingPhoto;
+		private System.Windows.Forms.Panel panel12;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.TextBox list_txt;
+		private System.Windows.Forms.CheckBox followfromlist;
+		private System.Windows.Forms.CheckBox emojisupport;
+		private System.Windows.Forms.ToolStripMenuItem deleteCredentialsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem dontShowReadmeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem downloadInstaPyFilesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem downloadChromedriverToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem2;
 	}
 }
 
