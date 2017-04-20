@@ -690,11 +690,11 @@
 			// missing
 			// 
 			this.missing.AutoSize = true;
-			this.missing.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.missing.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.missing.ForeColor = System.Drawing.Color.Red;
-			this.missing.Location = new System.Drawing.Point(6, 647);
+			this.missing.Location = new System.Drawing.Point(7, 653);
 			this.missing.Name = "missing";
-			this.missing.Size = new System.Drawing.Size(142, 31);
+			this.missing.Size = new System.Drawing.Size(108, 25);
 			this.missing.TabIndex = 36;
 			this.missing.Text = "========";
 			// 
@@ -932,13 +932,13 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(800, 693);
+			this.Controls.Add(this.run);
 			this.Controls.Add(this.missing);
 			this.Controls.Add(this.panel12);
 			this.Controls.Add(this.panel11);
 			this.Controls.Add(this.panel10);
 			this.Controls.Add(this.panel9);
 			this.Controls.Add(this.panel8);
-			this.Controls.Add(this.run);
 			this.Controls.Add(this.panel7);
 			this.Controls.Add(this.panel6);
 			this.Controls.Add(this.panel5);
