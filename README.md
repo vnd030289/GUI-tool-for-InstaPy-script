@@ -5,7 +5,7 @@
 ![lol](https://img.shields.io/badge/Built%20in-C%23-red.svg?style=flat-square)
 ![brt](https://img.shields.io/badge/Requirements-.NET%203.5-orange.svg?style=flat-square)
 [![Build Status](https://travis-ci.org/Nemixalone/GUI-tool-for-InstaPy-script.svg?branch=master)](https://travis-ci.org/Nemixalone/GUI-tool-for-InstaPy-script)
-
+![naah](https://img.shields.io/badge/up--to--date%20with%20InstaPy-NO-red.svg?style=flat-square)
 ## Synopsis
 
 Simple GUI Tool for generating [InstaPy](https://github.com/timgrossmann/InstaPy) script for easier use.
