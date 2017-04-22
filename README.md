@@ -18,6 +18,10 @@ If you have any suggestions regarding the app feel free to comment on TO DO Issu
 
 No Installation needed. Just download .exe from release and put it in main folder of InstaPy.
 
+## Requirements 
+
+You need to have [Python](https://www.python.org/downloads/) 2.7 or 3.6 installed. Setted up path for PY command. Installed [Selenium](http://selenium-python.readthedocs.io/) and [pyvirtualdriver](https://pypi.python.org/pypi/PyVirtualDisplay).
+
 ## Usage
 
 Main screen
