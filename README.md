@@ -20,7 +20,7 @@ No Installation needed. Just download .exe from release and put it in main folde
 
 ## Requirements 
 
-You need to have [Python](https://www.python.org/downloads/) 2.7 or 3.6 installed. Setted up path for PY command. Installed [Selenium](http://selenium-python.readthedocs.io/) and [pyvirtualdriver](https://pypi.python.org/pypi/PyVirtualDisplay).
+You need to have [Python](https://www.python.org/downloads/) 2.7 or 3.6 installed. Setted up path for PY command. Installed [Selenium](http://selenium-python.readthedocs.io/) and [pyvirtualdisplay](https://pypi.python.org/pypi/PyVirtualDisplay).Downloaded [InstaPy](https://github.com/timgrossmann/InstaPy) zip file. Extract it and put InstaPy-GUI.exe inside InstaPy folder.
 
 ## Usage
 
